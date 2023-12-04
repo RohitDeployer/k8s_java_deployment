@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+spec:
+  rules:
+  - host: rohitcloud.online  # Replace with your actual domain
+    http:
+      paths:
+      - path: /shopfront
+        pathType: Prefix
+        backend:
+          service:
+            name: shopfront
+            port:
+              number: 8010
+      - path: /products
+        pathType: Prefix
+        backend:
+          service:
+            name: productcatalogue
+            port:
+              number: 8020
+      - path: /stock
+        pathType: Prefix
+        backend:
+          service:
+            name: stockmanager
+            port:
+              number: 8030
